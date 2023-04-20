@@ -35,7 +35,10 @@ const Login = () => {
                         setText(target.value);
                         setValue(target.value)}}
                     />
-                <Button variant='contained' color="primary" style={{marginTop: 20, width: "50%"}} onClick={({target}) => {console.log("Atom");}}>
+                <Button variant='contained' color="primary" style={{marginTop: 20, width: "50%"}} onClick={({target}) => {
+                    //ir a dashboard
+                    navigate("/dashboard");
+                }}>
                     Ingresar
                 </Button>
                 <p style={{color: "white"}}>Atom: {text}</p>
