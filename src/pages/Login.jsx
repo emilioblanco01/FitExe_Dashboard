@@ -1,11 +1,17 @@
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 import React, {useState} from 'react';
 import CustomInput from '../components/Inputs/CustomInput';
 import imgLogin from '../assets/loginImage.jpg';
 import logo from '../assets/logoBlanco.png';
+import { useNavigate } from 'react-router-dom';
+import { selector, useRecoilState, useRecoilValue } from 'recoil';
+import { textState } from '../recoil/Atoms';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [Value, setValue] = useState("");
+    const [text, setText] = useRecoilState(textState);
+
     return (
         <div style={{
         backgroundColor: '#141E26',
@@ -21,17 +27,18 @@ const Login = () => {
                 <img src={logo}/>
                 <CustomInput 
                     label="Usuario / Email" 
-                    value={Value} 
                     onChange={({target}) => setValue(target.value)}
                     />
                 <CustomInput 
                     label="Password" 
-                    value={Value} 
-                    onChange={({target}) => setValue(target.value)}
+                    onChange={({target}) => {
+                        setText(target.value);
+                        setValue(target.value)}}
                     />
-                <Button variant='contained' color="primary" style={{marginTop: 20, width: "50%"}}>
+                <Button variant='contained' color="primary" style={{marginTop: 20, width: "50%"}} onClick={({target}) => {console.log("Atom");}}>
                     Ingresar
                 </Button>
+                <p style={{color: "white"}}>Atom: {text}</p>
                 </div>
             </div>
             

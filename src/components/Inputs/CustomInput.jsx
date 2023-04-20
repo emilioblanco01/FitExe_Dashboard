@@ -33,6 +33,7 @@ const CustomInput = ({
         style={{marginTop: 25}}
         label={label} 
         value={value}
+        InputLabelProps={{shrink: true}}
         onChange={onChange}/>
   )
 }
