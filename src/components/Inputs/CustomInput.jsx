@@ -1,6 +1,9 @@
 import React from 'react';
 import { styled } from "@mui/material/styles"
 import { TextField } from '@mui/material';
+//ICons
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const StyledTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -25,7 +28,10 @@ const StyledTextField = styled(TextField)({
 const CustomInput = ({
   label,
   value,
-  onChange
+  onChange,
+  isPassword,
+  visibility,
+  onVisibility
 }) => {
   return (
       <StyledTextField 
@@ -34,6 +40,19 @@ const CustomInput = ({
         label={label} 
         value={value}
         InputLabelProps={{shrink: true}}
+        InputProps={isPassword ? {
+          endAdornment: (
+            visibility ? 
+              <VisibilityIcon 
+                style={{cursor: "pointer"}}
+                onClick={onVisibility}/> : 
+              <VisibilityOffIcon 
+                style={{cursor: "pointer"}}
+                onClick={onVisibility}/>
+          ),
+          type: !visibility ? "text" : "password"
+        }: null
+        }
         onChange={onChange}/>
   )
 }
