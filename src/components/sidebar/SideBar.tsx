@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ArrowBackIosNewSharpIcon from '@mui/icons-material/ArrowBackIosNewSharp';
 import PersonOutlineSharpIcon from '@mui/icons-material/PersonOutlineSharp';
 import PeopleOutlineSharpIcon from '@mui/icons-material/PeopleOutlineSharp';
@@ -12,7 +12,7 @@ const SideBar = () => {
 
   return (
     <div style={{
-      width: '10em',
+      width: !Open ? '10rem' : '3rem',
       height: '90vh',
       backgroundColor: "#141E26",
       color: "#FFFFFF",
@@ -29,64 +29,78 @@ const SideBar = () => {
           display: "flex",
           alignItems: "center",
           height: '10%',
+          cursor: "pointer",
         }}>
           <PersonOutlineSharpIcon style={{
             fontSize: 30,
           }} />
-          <p style={{ marginLeft: 10}}>Usuarios</p>
+          {
+            !Open ?
+              <p style={{ marginLeft: 10 }}>Usuarios</p>
+              : null
+          }
         </div>
         <div style={{
           display: "flex",
           alignItems: "center",
           height: '10%',
+          cursor: "pointer",
         }}>
           <PeopleOutlineSharpIcon style={{
             fontSize: 30,
           }} />
-          <p style={{marginLeft: 10}}>Perfiles</p>
+          {
+            !Open ? <p style={{ marginLeft: 10 }}>Perfiles</p> : null
+          }
         </div>
         <div style={{
           display: "flex",
           alignItems: "center",
           height: '10%',
+          cursor: "pointer",
         }}>
           <CachedSharpIcon style={{
             fontSize: 30,
           }} />
-          <p style={{marginLeft: 10}}>Rutinas</p>
+          {
+            !Open ? <p style={{ marginLeft: 10 }}>Rutinas</p> : null
+          }
         </div>
         <div style={{
           display: "flex",
           alignItems: "center",
           height: '10%',
+          cursor: "pointer",
         }}>
           <SlowMotionVideoSharpIcon style={{
             fontSize: 30,
           }} />
-          <p style={{marginLeft: 10}}>Tutoriales</p>
+          {
+            !Open ? <p style={{ marginLeft: 10 }}>Tutoriales</p> : null
+          }
         </div>
       </div>
       <div style={{
         width: '90%',
         height: '5%',
         display: "flex",
-        justifyContent: "right",
+        justifyContent: Open ? "center" : "right",
       }}>
         {
           !Open ?
-          <ArrowBackIosNewSharpIcon
-          onClick={() => setOpen(!Open)}
-          style={{
-            fontSize: 30,
-            cursor: "pointer",
-          }} />
-          :
-          <ArrowForwardIosIcon
-          onClick={() => setOpen(!Open)}
-          style={{
-            fontSize: 30,
-            cursor: "pointer",
-          }} />
+            <ArrowBackIosNewSharpIcon
+              onClick={() => setOpen(!Open)}
+              style={{
+                fontSize: 30,
+                cursor: "pointer",
+              }} />
+            :
+            <ArrowForwardIosIcon
+              onClick={() => setOpen(!Open)}
+              style={{
+                fontSize: 30,
+                cursor: "pointer",
+              }} />
         }
       </div>
     </div>

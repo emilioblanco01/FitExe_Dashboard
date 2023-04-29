@@ -1,14 +1,19 @@
+/**
+ * @file Login.jsx
+ * @brief Página de login
+ * @version 1.0.0
+ * @date 28/03/2021 | dd/mm/yyyy | @desc Versión inicial
+ * @autor Emilio Blanco Lopez
+ */
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import CustomInput from '../components/Inputs/CustomInput';
 import imgLogin from '../assets/loginImage.jpg';
-import logo from '../assets/logoBlanco.png';
 import { useNavigate } from 'react-router-dom';
-import { selector, useRecoilState, useRecoilValue } from 'recoil';
-import { textState } from '../recoil/Atoms';
-import { makeStyles } from '@mui/material/styles';
 import { supabase } from '../supabase/index';
-import { SnackbarProvider, useSnackbar } from 'notistack';
+import { useSnackbar } from 'notistack';
+import styles from '../styles/styles.module.css';
+import LogoBlanco from '../assets/svgs/LogoBlanco';
 
 const Login = () => {
     const { enqueueSnackbar } = useSnackbar();
@@ -17,7 +22,7 @@ const Login = () => {
         Email: "",
         Password: ""
     });
-    const [VisibilityPassword, setVisibilityPassword] = useState(false);
+    const [VisibilityPassword, setVisibilityPassword] = useState(true);
 
     /**
      * @title onLogin
@@ -40,19 +45,14 @@ const Login = () => {
     }
 
     return (
-        <div style={{
-            backgroundColor: '#141E26',
-            width: "100vw",
-            height: "100vh",
-            display: "flex"
-        }}>
-            <div style={{ width: "fit-content", height: "100%" }}>
-                <img src={imgLogin} alt={"jumpWithBall"} style={{ height: "100%" }} />
+        <div className={styles.login}>
+            <div className={styles.loginImg}>
+            <img src={imgLogin} alt={"jumpWithBall"} style={{ height: "100%" }} />
             </div>
 
-            <div style={{ display: "flex", position: "relative", width: "70%", height: "100%", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ marginTop: 10, height: "fit-content", width: "30%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <img src={logo} />
+            <div className={styles.LoginContent}>
+                <div className={styles.LoginForm}>
+                    <LogoBlanco style={{marginBottom: 10}}/>
                     <CustomInput
                         label="Usuario / Email"
                         value={Data.Email}

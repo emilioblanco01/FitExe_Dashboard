@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
-import './styles/stylesProyect.css';
 
 const Login = React.lazy(() => import("./pages/Login"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
