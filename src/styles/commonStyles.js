@@ -58,6 +58,34 @@ export const theme = createTheme({
                     color: "white"
                 }
             }
+        },
+        MuiTooltip:{
+            styleOverrides:{
+                tooltip: {
+                    backgroundColor: "#D9A404",
+                    color: "white",
+                    fontSize: 13
+                },
+                arrow: {
+                    color: "#D9A404"
+                }
+            }},
+        MuiTableHead:{
+            styleOverrides:{
+                root: {
+                    backgroundColor: "#D9A404",
+                    fontFamily: "Montserrat",
+                    fontWeight: "bold",
+                }   
+            }
+        },
+        MuiTableCell:{
+            styleOverrides:{
+                root: {
+                    fontFamily: "Montserrat",
+                    fontWeight: "bold",
+                }
+            }
         }
     }
 });

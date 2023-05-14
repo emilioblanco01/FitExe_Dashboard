@@ -1,106 +1,59 @@
-import React, { useEffect, useState } from 'react';
+/**
+ * @desc Componente SideBar
+ * Componente que contiene la navegación de la aplicación
+ * @version 0.1.0
+ * @since 2021-05-26 22:00:00
+ * @return {React.FunctionComponent}
+ */
+
+import React from 'react';
 import ArrowBackIosNewSharpIcon from '@mui/icons-material/ArrowBackIosNewSharp';
-import PersonOutlineSharpIcon from '@mui/icons-material/PersonOutlineSharp';
-import PeopleOutlineSharpIcon from '@mui/icons-material/PeopleOutlineSharp';
-import CachedSharpIcon from '@mui/icons-material/CachedSharp';
-import SlowMotionVideoSharpIcon from '@mui/icons-material/SlowMotionVideoSharp';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useRecoilState } from 'recoil';
+import { sidebarState } from '../../recoil/Atoms';
+import Nav from './Navigation/Nav';
+import { useStyles } from './SideBar.style';
+
+// Componente SideBar
 
 const SideBar = () => {
 
-  const [Open, setOpen] = useState(false);
+  const classes = useStyles();
+  const [sidebar, setSidebar] = useRecoilState(sidebarState);
+
+  const handleSidebar = () => setSidebar(!sidebar);
+
+  // Renderizado del componente
 
   return (
-    <div style={{
-      width: !Open ? '10rem' : '3rem',
-      height: '90vh',
-      backgroundColor: "#141E26",
-      color: "#FFFFFF",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    }}>
-      <div style={{
-        width: '90%',
-        height: '90%',
-      }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          height: '10%',
-          cursor: "pointer",
-        }}>
-          <PersonOutlineSharpIcon style={{
-            fontSize: 30,
-          }} />
-          {
-            !Open ?
-              <p style={{ marginLeft: 10 }}>Usuarios</p>
-              : null
-          }
-        </div>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          height: '10%',
-          cursor: "pointer",
-        }}>
-          <PeopleOutlineSharpIcon style={{
-            fontSize: 30,
-          }} />
-          {
-            !Open ? <p style={{ marginLeft: 10 }}>Perfiles</p> : null
-          }
-        </div>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          height: '10%',
-          cursor: "pointer",
-        }}>
-          <CachedSharpIcon style={{
-            fontSize: 30,
-          }} />
-          {
-            !Open ? <p style={{ marginLeft: 10 }}>Rutinas</p> : null
-          }
-        </div>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          height: '10%',
-          cursor: "pointer",
-        }}>
-          <SlowMotionVideoSharpIcon style={{
-            fontSize: 30,
-          }} />
-          {
-            !Open ? <p style={{ marginLeft: 10 }}>Tutoriales</p> : null
-          }
-        </div>
+    <div
+      style={{ width: !sidebar ? '15%' : '5%' }}
+      className={classes.container}>
+      <div
+        style={{
+          width: !sidebar ? '90%' : '100%',
+          alignItems: sidebar ? "center" : "flex-start"
+        }}
+        className={classes.navigation}>
+
+        <Nav type={1} text="Usuarios" />
+        <Nav type={2} text="Perfiles" />
+        <Nav type={3} text="Rutinas" />
+        <Nav type={4} text="Tutoriales" />
+
       </div>
-      <div style={{
-        width: '90%',
-        height: '5%',
-        display: "flex",
-        justifyContent: Open ? "center" : "right",
-      }}>
+      <div
+        style={{ justifyContent: sidebar ? "center" : "right" }}
+        className={classes.arrowContainer}>
         {
-          !Open ?
+          !sidebar ?
             <ArrowBackIosNewSharpIcon
-              onClick={() => setOpen(!Open)}
-              style={{
-                fontSize: 30,
-                cursor: "pointer",
-              }} />
+              onClick={handleSidebar}
+              className={classes.arrow} />
             :
             <ArrowForwardIosIcon
-              onClick={() => setOpen(!Open)}
-              style={{
-                fontSize: 30,
-                cursor: "pointer",
-              }} />
+              onClick={handleSidebar}
+              className={classes.arrow} />
         }
       </div>
     </div>

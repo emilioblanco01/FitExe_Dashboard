@@ -1,19 +1,16 @@
 import React from 'react';
-import { style, styleGroupBotton } from './NavBar.styles';
+import { style } from './NavBar.styles';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import { useStyles } from './NavBar.styles';
 
 const NavBar = () => {
+
+    const classes = useStyles();
+
     return (
         <div style={style}>
-            <div style={{
-                width: 90,
-                height: "100%",
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginLeft: 25,
-            }}>
+            <div className={classes.container}>
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
                 version="1.1"
@@ -29,29 +26,21 @@ const NavBar = () => {
                 </g>
             </svg>
             </div>
-            <div style={{
-                width: "93%",
-                height: "100%",
-                float: "right",
-                display: "flex",
-                justifyContent: "right",
-                alignItems: "center",
-            }}>
-                <SettingsIcon sx={{
-                    fontSize: 30,
-                }} 
-                style={{
-                    marginRight: "10px",
-                }}/>
+
+            <div className={classes.containerIcon}>
+
+                <SettingsIcon 
+                sx={{ fontSize: 24 }} 
+                className={classes.IconStyles}
+                />
+
                 <PowerSettingsNewIcon 
-                sx={{
-                    fontSize: 30,
-                }}
-                style={{
-                    marginRight: "10px",
-                }}/>
+                sx={{ fontSize: 24 }} 
+                className={classes.IconStyles}
+                />
 
             </div>
+
         </div>
     )
 }
