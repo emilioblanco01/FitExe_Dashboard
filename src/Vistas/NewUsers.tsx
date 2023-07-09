@@ -32,7 +32,7 @@ const NewUsers = () => {
               width: "90%",
               height: "90%",
             }}>
-              <Table />
+              <Table data={[]}/>
             </div>
         </div>
     </div>

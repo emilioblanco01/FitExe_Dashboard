@@ -3,6 +3,7 @@ import NavBar from '../components/Navbar/NavBar';
 import SideBar from '../components/sidebar/SideBar';
 import NewUsers from '../Vistas/NewUsers';
 import { Routes, Route } from 'react-router-dom';
+import NewMovement from '../Vistas/NewMovement';
 
 const Dashboard = () => {
   return (
@@ -17,9 +18,9 @@ const Dashboard = () => {
         <Routes>
           <Route path="/" element={<NewUsers/>} />
           <Route path="Nuevo-Usuario" element={<NewUsers/>} />
-          <Route path="Nueva-Rutina" element={<NewUsers/>} />
           <Route path="Nuevo-Perfil" element={<NewUsers/>} />
-          <Route path="Nuevo-Tutorial" element={<NewUsers/>} />
+          <Route path="Nueva-Rutina" element={<NewUsers/>} />
+          <Route path="Nuevo-Movimiento" element={<NewMovement/>} />
         </Routes>
       </main>
     </div>

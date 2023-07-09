@@ -10,6 +10,7 @@ import PersonOutlineSharpIcon from '@mui/icons-material/PersonOutlineSharp';
 import PeopleOutlineSharpIcon from '@mui/icons-material/PeopleOutlineSharp';
 import CachedSharpIcon from '@mui/icons-material/CachedSharp';
 import SlowMotionVideoSharpIcon from '@mui/icons-material/SlowMotionVideoSharp';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import { useRecoilState } from 'recoil';
 import { sidebarState } from '../../../recoil/Atoms';
 import { useNavigate } from 'react-router-dom';
@@ -47,7 +48,7 @@ const Nav = (props: Props) => {
                 setIcon(<CachedSharpIcon style={{ fontSize: innerWidth < 1200 ? 25 : 30 }} />);
                 break;
             case 4:
-                setIcon(<SlowMotionVideoSharpIcon style={{ fontSize: innerWidth < 1200 ? 25 : 30 }} />);
+                setIcon(<FitnessCenterIcon style={{ fontSize: innerWidth < 1200 ? 25 : 30 }} />);
                 break;
             default:
                 break;
@@ -62,13 +63,13 @@ const Nav = (props: Props) => {
                 navigate('Nuevo-Usuario');
                 break;
             case 2:
-                navigate('Nueva-Rutina');
-                break;
-            case 3:
                 navigate('Nuevo-Perfil');
                 break;
+            case 3:
+                navigate('Nueva-Rutina');
+                break;
             case 4:
-                navigate('Nuevo-Tutorial');
+                navigate('Nuevo-Movimiento');
                 break;
             default:
                 break;

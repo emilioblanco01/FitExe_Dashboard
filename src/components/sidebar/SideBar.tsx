@@ -39,7 +39,7 @@ const SideBar = () => {
         <Nav type={1} text="Usuarios" />
         <Nav type={2} text="Perfiles" />
         <Nav type={3} text="Rutinas" />
-        <Nav type={4} text="Tutoriales" />
+        <Nav type={4} text="Movimientos" />
 
       </div>
       <div

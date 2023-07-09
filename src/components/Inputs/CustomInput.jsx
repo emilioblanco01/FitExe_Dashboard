@@ -1,29 +1,11 @@
 import React from 'react';
-import { styled } from "@mui/material/styles"
-import { TextField } from '@mui/material';
+
 //ICons
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-const StyledTextField = styled(TextField)({
-  "& label.Mui-focused": {
-    color: "#D9A404"
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "#D9A404"
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "#D9A404"
-    },
-    "&:hover fieldset": {
-      borderColor: "#D9A404"
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "#D9A404"
-    }
-  }
-});
+// StyledComponents
+import { StyledTextField } from '../../styles/StyledComponents.js';
 
 const CustomInput = ({
   label,

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "TrainingType": "Crossfit"
+    },
+    {
+        "id": 2,
+        "TrainingType": "BodyBuilding"
+    },
+    {
+        "id": 3,
+        "TrainingType": "Weightlifting"
+    },
+    {
+        "id": 4,
+        "TrainingType": "Conditioning"
+    },
+    {
+        "id": 5,
+        "TrainingType": "Endurance"
+    },
+    {
+        "id": 6,
+        "TrainingType": "Strength"
+    },
+    {
+        "id": 7,
+        "TrainingType": "Any"
+    }
+]
