@@ -9,11 +9,10 @@ import React, { memo, useEffect, useState } from 'react';
 import PersonOutlineSharpIcon from '@mui/icons-material/PersonOutlineSharp';
 import PeopleOutlineSharpIcon from '@mui/icons-material/PeopleOutlineSharp';
 import CachedSharpIcon from '@mui/icons-material/CachedSharp';
-import SlowMotionVideoSharpIcon from '@mui/icons-material/SlowMotionVideoSharp';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import { useRecoilState } from 'recoil';
 import { sidebarState } from '../../../recoil/Atoms';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Tooltip } from '@mui/material';
 import Zoom from '@mui/material/Zoom';
 
@@ -25,6 +24,8 @@ import { useStyles } from './Nav.style';
 interface Props {
     type: number,
     text: string,
+    Drawer?: boolean;
+    styles?: object | undefined;
 }
 
 // component
@@ -39,7 +40,7 @@ const Nav = (props: Props) => {
     useEffect(() => {
         switch (props.type) {
             case 1:
-                setIcon(<PersonOutlineSharpIcon style={{ fontSize: innerWidth < 1200 ? 25 : 30 }} />);
+                setIcon(<PersonOutlineSharpIcon style={{ fontSize: innerWidth < 1200 ? 25 : 30}} />);
                 break;
             case 2:
                 setIcon(<PeopleOutlineSharpIcon style={{ fontSize: innerWidth < 1200 ? 25 : 30 }} />);
@@ -83,10 +84,11 @@ const Nav = (props: Props) => {
             arrow
             TransitionComponent={Zoom}
             disableHoverListener={!sidebar}>
-        <div className={classes.root} onClick={onNavigate}>
+        <div className={classes.root} onClick={onNavigate} style={{...props.styles}}>
             {Icon}
             {
-                !sidebar ?
+                !sidebar || props.Drawer
+                ?
                     <p style={{ marginLeft: 10 }}>{props.text}</p>
                     : null
             }

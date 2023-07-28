@@ -40,6 +40,15 @@ export const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 25,
+        },
+        iconStyle: { 
+            display: "flex", 
+            justifyContent: "center", 
+            alignItems: "center", 
+            [themes.breakpoints.up('md')]: {
+                display: "none",
+                position: "none",
+            },
         }
     }),
 );

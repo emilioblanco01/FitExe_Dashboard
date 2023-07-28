@@ -24,6 +24,10 @@ export const useStyles = makeStyles((theme: Theme) =>
             justifyContent: "center",
             [themes.breakpoints.down('xl')]: {
                 height: '90vh',
+            },
+            [themes.breakpoints.down('md')]: {
+                display: "none",
+                position: "none",
             }
         },
         navigation: {

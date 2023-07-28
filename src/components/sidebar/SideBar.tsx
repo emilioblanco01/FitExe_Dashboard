@@ -6,22 +6,29 @@
  * @return {React.FunctionComponent}
  */
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import ArrowBackIosNewSharpIcon from '@mui/icons-material/ArrowBackIosNewSharp';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useRecoilState } from 'recoil';
 import { sidebarState } from '../../recoil/Atoms';
 import Nav from './Navigation/Nav';
 import { useStyles } from './SideBar.style';
+import { useLocation } from 'react-router-dom';
 
 // Componente SideBar
 
 const SideBar = () => {
 
+  const location = useLocation();
+  const pathname = location.pathname.split('dashboard/')[1];
   const classes = useStyles();
   const [sidebar, setSidebar] = useRecoilState(sidebarState);
 
   const handleSidebar = () => setSidebar(!sidebar);
+
+  useEffect(() => {
+    console.log(pathname)
+}, [pathname])
 
   // Renderizado del componente
 
@@ -36,10 +43,9 @@ const SideBar = () => {
         }}
         className={classes.navigation}>
 
-        <Nav type={1} text="Usuarios" />
-        <Nav type={2} text="Perfiles" />
-        <Nav type={3} text="Rutinas" />
-        <Nav type={4} text="Movimientos" />
+        <Nav type={1} text="Usuarios" styles={pathname === "Nuevo-Usuario" ? {color: "#D9A404"} : {}}/>
+        <Nav type={3} text="Rutinas" styles={pathname === "Nueva-Rutina" ? {color: "#D9A404"} : {}}/>
+        <Nav type={4} text="Movimientos" styles={pathname === "Nuevo-Movimiento" ? {color: "#D9A404"} : {}}/>
 
       </div>
       <div
