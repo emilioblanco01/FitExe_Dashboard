@@ -6,10 +6,10 @@ import { FormInput, FormSelectbyId } from '../../Inputs/FormInput';
 
 // Styled Components
 import { StyledButtonCancel, StyledButtonAdd } from '../../../styles/StyledComponents';
-import { useStyles } from './ModalAddMovement.styles';
+import { useStyles } from './ModalAddUser.styles';
 
 // Interfaces
-import { IModalAddMovementProps } from './ModalAddMovement.interface';
+import { IModalAddMovementProps } from './ModalAddUser.interfaces';
 import { SelectChangeEvent } from '@mui/material/Select';
 
 //JSON
@@ -38,27 +38,18 @@ const index = ({
      */
 
     const handleChangeName = (changeEvent: changeEvent) => {
-        const { value } = changeEvent.target;
-        onChange({ ...data, name: value });
+        const { value, name } = changeEvent.target;
+        onChange({ ...data, [name]: value });
     };
 
     /**
-     * Funcion para cambiar el valor de type en el state
+     * FUncion para cambiar el tipo de entrenamiento
      */
 
-    const handleChange = (event: SelectChangeEvent) => {
-        onChange({ ...data, type: event.target.value });
-    };
-
-    /**
-     * Funcion para cambiar el valor de url en el state
-     */
-
-    const handleChangeUrl = (changeEvent: changeEvent) => {
-        const { value } = changeEvent.target;
-        onChange({ ...data, url: value });
-    };
-
+    const handleChangeType = (changeEvent: SelectChangeEvent) => {
+        const { value, name } = changeEvent.target;
+        onChange({ ...data, [name]: value });
+    }
 
     return (
         <Modal
@@ -74,18 +65,43 @@ const index = ({
                     <div className={classes.formStyle}>
                         {/* Form */}
                         <FormInput
-                            label='Nombre del Movimiento'
+                            label='Nombre: '
+                            name='name'
                             value={data.name}
                             onChange={handleChangeName} />
+                        <FormInput
+                            label='Apellido: '
+                            name='lastname'
+                            value={data.lastname}
+                            onChange={handleChangeName} />
+                        <FormInput
+                            label='Fecha de Nacimiento: '
+                            name='birthdate'
+                            type='date'
+                            value={data.birthdate}
+                            onChange={handleChangeName} />
+                        <FormInput
+                            label='Correo Electronico: '
+                            name='email'
+                            value={data.email}
+                            onChange={handleChangeName} />
+                        <FormInput
+                            label='Telefono: '
+                            name='phone'
+                            value={data.phone}
+                            onChange={handleChangeName} />
                         <FormSelectbyId
-                            label='Tipo de entrenamiento'
-                            value={data.type}
-                            onChange={handleChange}
+                            label='Tipo de entrenamiento: '
+                            name='typeTraining'
+                            value={data.typeTraining}
+                            onChange={handleChangeType}
                             options={TrainingType} />
                         <FormInput
-                            label='URL'
-                            value={data.url}
-                            onChange={handleChangeUrl} />
+                            label='Token: '
+                            name='password'
+                            type='password'
+                            value={data.password}
+                            onChange={handleChangeName} />
                         {/* Buttons */}
                         <div className={classes.buttonsStyle}>
                             <StyledButtonCancel

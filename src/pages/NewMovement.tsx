@@ -28,7 +28,7 @@ const NewUsers = () => {
     const [open, setOpen] = useState(false);
 
     const [sidebar] = useRecoilState(sidebarState);
-    
+
     useEffect(() => {
 
         GetMovimientos();
@@ -114,16 +114,29 @@ const NewUsers = () => {
                         width: "90%",
                         height: "90%",
                     }}>
-                        <Table data={data} />
+                        <Table data={data} rows={[
+                            {
+                                label: "Nombre del Movimiento",
+                                value: "MovementName"
+                            },
+                            {
+                                label: "Tipo de entrenamiento",
+                                value: "TrainingTypeId"
+                            },
+                            {
+                                label: "URLs",
+                                value: "URL"
+                            }
+                        ]} />
                     </div>
                 </div>
             </div>
-            <ModalAddMovement 
-                open={open} 
+            <ModalAddMovement
+                open={open}
                 handleClose={handleModal}
                 data={DataNewMovement}
                 onChange={setDataNewMovement}
-                onSave={SaveNewMovement}/>
+                onSave={SaveNewMovement} />
         </>
     )
 }

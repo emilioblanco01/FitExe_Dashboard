@@ -8,6 +8,7 @@ export interface InputProps {
     placeholder?: string;
     disabled?: boolean;
     error?: string;
+    name?: string;
 }
 
 export interface InputTextProps extends InputProps {
