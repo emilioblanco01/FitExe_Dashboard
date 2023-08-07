@@ -26,10 +26,6 @@ const SideBar = () => {
 
   const handleSidebar = () => setSidebar(!sidebar);
 
-  useEffect(() => {
-    console.log(pathname)
-}, [pathname])
-
   // Renderizado del componente
 
   return (
@@ -43,7 +39,7 @@ const SideBar = () => {
         }}
         className={classes.navigation}>
 
-        <Nav type={1} text="Usuarios" styles={pathname === "Nuevo-Usuario" ? {color: "#D9A404"} : {}}/>
+        <Nav type={1} text="Usuarios" styles={pathname === "Nuevo-Usuario" || pathname === undefined  ? {color: "#D9A404"} : {}}/>
         <Nav type={3} text="Rutinas" styles={pathname === "Nueva-Rutina" ? {color: "#D9A404"} : {}}/>
         <Nav type={4} text="Movimientos" styles={pathname === "Nuevo-Movimiento" ? {color: "#D9A404"} : {}}/>
 

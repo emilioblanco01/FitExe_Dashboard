@@ -1,9 +1,9 @@
 import React from 'react';
 import NavBar from '../components/Navbar/NavBar';
 import SideBar from '../components/sidebar/SideBar';
-import NewUsers from '../Vistas/NewUsers';
+import NewUsers from './NewUsers';
 import { Routes, Route } from 'react-router-dom';
-import NewMovement from '../Vistas/NewMovement';
+import NewMovement from './NewMovement';
 
 const Dashboard = () => {
   return (
@@ -16,7 +16,7 @@ const Dashboard = () => {
       }}>
         <SideBar/>
         <Routes>
-          <Route path="/" element={<NewUsers/>} />
+          <Route path="/" element={<></>} />
           <Route path="Nuevo-Usuario" element={<NewUsers/>} />
           <Route path="Nuevo-Perfil" element={<NewUsers/>} />
           <Route path="Nueva-Rutina" element={<NewUsers/>} />

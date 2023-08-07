@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { styleBox } from './Modal.style';
+import { styleBox, useStyles } from './Modal.style';
 
 interface Props {
     children: React.ReactNode;
@@ -11,6 +11,8 @@ interface Props {
 
 export default function BasicModal({ open, handleClose, children }: Props) {
 
+    const classes = useStyles();
+
     return (
         <div>
             <Modal
@@ -19,18 +21,9 @@ export default function BasicModal({ open, handleClose, children }: Props) {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={[ 
-                    styleBox, 
-                    {
-                        display: "flex", 
-                        flexDirection: "column",
-                        alignItems: "center", 
-                        justifyContent: "center",
-                        borderEndStartRadius: "50px",
-                        }
-                        ]}>
+                <div className={classes.styleBox}>
                     {children}
-                </Box>
+                </div>
             </Modal>
         </div>
     );
